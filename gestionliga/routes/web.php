@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
-// ruta para listar los equipos
+});*/
+
+Route::get('/', HomeController::class);
+Route::get('teams', [TeamController::class, 'index']);
+Route::get('players', [PlayerController::class, 'index']);
+//Route::resource('/teams', TeamController::class);// Esto crea todas las rutas de forma automática.
+/*// ruta para listar los equipos
 Route::get('teams', [TeamController::class, 'index']);
 // ruta para crear un nuevo equipo
 Route::get('teams/create', [TeamController::class, 'create']);
@@ -29,4 +37,4 @@ Route::get('teams/{team}/edit', [TeamController::class, 'edit']);
 // ruta para actualiza un equipo existente
 Route::put('teams/{team}', [TeamController::class, 'update']);
 // ruta para eliminar un equipo existente
-Route::delete('teams/{team}', [TeamController::class, 'destroy']);
+Route::delete('teams/{team}', [TeamController::class, 'destroy']);*/
